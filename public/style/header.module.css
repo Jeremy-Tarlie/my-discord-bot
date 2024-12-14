@@ -42,6 +42,7 @@
 
 .nav div select {
   margin: 0 10px;
+  color: black;
 }
 
 @media screen and (max-width: 568px) {

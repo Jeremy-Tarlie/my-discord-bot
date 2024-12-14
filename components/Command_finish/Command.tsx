@@ -18,8 +18,6 @@ const Command = ({ bot, setBot }: { bot: any; setBot: any }) => {
     { name: string; description: string; custom?: boolean }[]
   >([]);
 
-
-
   const additionalCost = useMemo(() => {
     const totalCommands = selectedCommands.length;
     const customCommands = selectedCommands.filter((cmd) => cmd.custom).length;
@@ -116,7 +114,7 @@ const Command = ({ bot, setBot }: { bot: any; setBot: any }) => {
     <div className={style.commandes_list}>
       <ul className={style.command_list_ul}>
         {commands.map((command) => (
-          <li key={command.name} className="commande">
+          <li key={command.name} className={style.commande}>
             <input
               className={style.command_checkbox}
               type="checkbox"
@@ -125,8 +123,10 @@ const Command = ({ bot, setBot }: { bot: any; setBot: any }) => {
                 (selected) => selected.name === command.name
               )}
             />
-            <strong>{command.name}</strong>
-            <span>: {command.description}</span>
+            <label >
+              <strong>{command.name}</strong>
+              <span>: {command.description}</span>
+            </label>
           </li>
         ))}
 
