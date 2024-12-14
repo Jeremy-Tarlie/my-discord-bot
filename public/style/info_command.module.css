@@ -1,0 +1,88 @@
+.info_commande {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  font-weight: 600;
+}
+
+.price_prefixe {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.price_prefixe p {
+  margin: 0;
+}
+
+.detail_commande {
+  background-color: var(--background-bubble-start);
+  padding: 10px;
+  text-align: center;
+  margin: 20px 0;
+  font-weight: normal;
+}
+
+.detail_commande p:nth-of-type(2) {
+  margin: 30px 0;
+}
+
+.detail_commande p {
+  font-size: medium;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.contact div {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.contact div label {
+  margin: 0 10px;
+}
+
+.contact div input {
+  margin: 0 5px;
+}
+
+.other_command {
+  display: flex;
+  align-items: center;
+}
+
+.form button {
+  background-color: var(--background-bubble-start);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.5em;
+  cursor: pointer;
+  margin: 20px 0;
+  color: var(--color-text);
+}
+
+
+@media screen and (max-width: 768px) {
+  .info_commande {
+    width: 90%;
+  }
+
+  .contact {
+    flex-direction: column;
+  }
+}

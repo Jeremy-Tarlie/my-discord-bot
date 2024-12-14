@@ -1,0 +1,23 @@
+.footer {
+  height: 200px;
+  background-color: var(--background-header-footer);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: auto;
+  flex-direction: row;
+}
+
+.copyrigth {
+  text-align: center;
+  margin-right: 50px;
+}
+@media screen and (max-width: 425px) {
+  .copyrigth {
+    margin: 0;
+  }
+  .footer {
+    flex-direction: column-reverse;
+  }
+}

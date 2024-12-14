@@ -1,0 +1,80 @@
+.view {
+  position: sticky;
+  color: var(--color-text);
+  margin: 0;
+  top: 50px;
+  height: fit-content;
+}
+
+.bot_background {
+  border-radius: 10px;
+  width: 350px;
+}
+
+.profile {
+  position: absolute;
+  border-radius: 50%;
+  width: 85px;
+  height: 85px;
+  top: 15px;
+  left: 20px;
+}
+
+.title_bot {
+  position: absolute;
+  top: 125px;
+  left: 30px;
+  font-size: large;
+  font-weight: bold;
+  width: 275px;
+  overflow: hidden;
+}
+
+.description_bot {
+  position: absolute;
+  top: 200px;
+  left: 30px;
+  width: 275px;
+  height: 200px;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 425px) {
+  .view {
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .view {
+    margin: auto;
+  }
+
+  .profile {
+    width: 50px;
+    height: 50px;
+    top: 8px;
+    left: 12px;
+  }
+
+  .title_bot {
+    top: 65px;
+    left: 15px;
+    width: 165px;
+    font-size: small;
+  }
+
+  .description_bot {
+    top: 115px;
+    left: 15px;
+    width: 165px;
+    font-size: small;
+    height: 120px;
+  }
+
+  .bot_background {
+    border-radius: 5px;
+    width: 200px;
+  }
+}

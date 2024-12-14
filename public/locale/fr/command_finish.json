@@ -1,0 +1,13 @@
+{
+  "add_command": "Ajouter une commande",
+  "prefixe": "Prefixe : ",
+  "price": "Prix : ",
+  "techno": "Technologie utilisée : JavaScript",
+  "info": {
+    "partie1": " Vous pouvez sélectionner jusqu'à 20 commandes sans frais supplémentaires. Au-delà de 20, un supplément de 1 € sera appliqué pour chaque tranche de 3 commandes supplémentaires.",
+    "partie2": "Les commandes personnalisées sont soumises à un surcoût de 2 € chacune. Veuillez noter qu’un délai supplémentaire peut être requis pour le traitement des commandes personnalisées.",
+    "partie3": "Le paiement s’effectue via PayPal. Un e-mail contenant le lien de paiement vous sera envoyé."
+  },
+  "delay": "Délai de la livraison du bot est estimé à 3 jours ouvrables.",
+  "finish": "Terminer"
+}

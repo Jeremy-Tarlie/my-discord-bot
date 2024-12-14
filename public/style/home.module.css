@@ -1,0 +1,170 @@
+.main {
+  /* width: 90%; */
+  margin: 0 auto;
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  flex-direction: column;
+  color: var(--color-text);
+  text-align: center;
+  background-color: var(--bubble);
+  padding: calc(1% + 20px);
+}
+
+.description p {
+  font-size: 1.5em;
+}
+
+.description button {
+  background-color: var(--background-bubble-start);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.5em;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.description button:hover {
+  background-color: var(--background-bubble-end);
+}
+
+.description button a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.container_bubble {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.bubble {
+  display: flex;
+  background-color: var(--color-text);
+  border-radius: 20px;
+  padding: 10px;
+  /* max-width: 750px; */
+  margin: 50px auto;
+  padding: 1em 2em;
+  /* border-inline: var(--t) solid #0000; */
+  /* border-radius: calc(var(--r) + var(--t)) / var(--r); */
+  /* mask: radial-gradient(100% 100% at var(--_p) 0, #0000 99%, #000 102%)
+      var(--_p) 100% / var(--t) var(--t) no-repeat,
+    linear-gradient(#000 0 0) padding-box; */
+  background: linear-gradient(135deg, var(--bubble), var(--bubble-end))
+    border-box;
+
+}
+
+.left {
+  /* --_p: 0;
+  border-bottom-left-radius: 0 0;
+  place-self: start;
+  margin-right: auto; */
+  flex-direction: row-reverse;
+}
+
+.right {
+  /* --_p: 100%;
+  border-bottom-right-radius: 0 0;
+  place-self: end;
+  margin-left: auto; */
+}
+
+.bubble img {
+  max-width: 300px;
+  height: 300px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.bubble_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 400px;
+  margin: auto 20px;
+  color: var(--color-text);
+}
+
+.bubble_text h1 {
+  font-size: 2.5em;
+  font-weight: bolder;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+
+.bubble_text p {
+  font-size: medium;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .bubble {
+    max-width: 850px;
+  }
+
+  .bubble_text h1 {
+    font-size: 2em;
+  }
+
+  .bubble_text p {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bubble {
+    flex-direction: column;
+    margin: 50px auto;
+  }
+
+  .bubble_text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .bubble_text h1 {
+    font-size: 2em;
+  }
+
+  .bubble_text p {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .main {
+    width: 100%;
+  }
+
+  .bubble {
+    --r: 3em; /* the radius */
+    --t: 0.5em; /* the size of the tail */
+    border-radius: calc(var(--r) + var(--t)) / var(--r);
+    mask: none;
+  }
+
+  .bubble img {
+    max-width: 200px;
+    height: 200px;
+  }
+
+  .bubble_text h1 {
+    font-size: 1.5em;
+  }
+
+  .bubble_text p {
+    font-size: 0.9em;
+  }
+}

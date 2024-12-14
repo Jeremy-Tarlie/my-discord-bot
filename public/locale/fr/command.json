@@ -1,0 +1,12 @@
+{
+  "title_bot": "Le nom du bot :",
+  "img_bot": "L'image du bot :",
+  "host": {
+    "title": "Héberger le bot :",
+    "true": "Oui",
+    "false": "Non"
+  },
+  "description": "La description du bot :",
+  "comment": "À propos du bot :",
+  "next_step": "Passer à la seconde étape"
+}

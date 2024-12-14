@@ -1,0 +1,13 @@
+.container_commande {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 50px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .container_commande {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
