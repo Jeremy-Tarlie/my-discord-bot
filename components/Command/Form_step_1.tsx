@@ -71,7 +71,8 @@ const Form_step_1 = ({ bot, setBot }: { bot: any; setBot: any }) => {
     >
       <div className={style.form_group}>
         <label>
-          {t("title_bot")} <span className={style.required}>*</span>
+          <span>{t("title_bot")}</span>
+          <span className={"required"}>*</span>
         </label>
         <input
           type="text"

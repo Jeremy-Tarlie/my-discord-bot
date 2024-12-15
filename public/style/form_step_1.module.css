@@ -1,7 +1,17 @@
-/* form { */
-  /* background-color: var(--bubble); */
-  /* padding: 20px; */
-/* } */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  background: linear-gradient(
+    to bottom,
+    var(--background-bubble-start),
+    var(--background-bubble-end)
+  );
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px #00000026;
+  color : black
+}
 
 .form_group {
   display: flex;
@@ -16,6 +26,17 @@
   display: flex;
 }
 
+.form_group label span {
+  margin-right: 5px;
+}
+
+.form_group textarea {
+  min-height: 50px;
+  resize: vertical;
+  height: 100px;
+  padding: 5px 10px;
+}
+
 .form button {
   background-color: var(--background-bubble-start);
   border: none;
@@ -25,4 +46,16 @@
   cursor: pointer;
   margin-bottom: 20px;
   color: var(--color-text);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.form button:hover {
+  background-color: var(--background-bubble-end);
+  transform: scale(1.05);
+}
+
+.form button:active {
+  background-color: var(--background-bubble-end);
 }

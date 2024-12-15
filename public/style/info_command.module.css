@@ -5,6 +5,14 @@
   align-items: center;
   width: 40%;
   font-weight: 600;
+  background: linear-gradient(
+    to bottom,
+    var(--background-bubble-start),
+    var(--background-bubble-end)
+  );
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px #00000026;
 }
 
 .price_prefixe {
@@ -18,7 +26,7 @@
 }
 
 .detail_commande {
-  background-color: var(--background-bubble-start);
+  /* background-color: var(--background-bubble-start); */
   padding: 10px;
   text-align: center;
   margin: 20px 0;
@@ -65,6 +73,13 @@
   align-items: center;
 }
 
+.form input {
+  color: black;
+  font-size: 1em;
+  font-weight: normal;
+  padding: 0 10px;
+}
+
 .form button {
   background-color: var(--background-bubble-start);
   border: none;
@@ -74,8 +89,17 @@
   cursor: pointer;
   margin: 20px 0;
   color: var(--color-text);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+.form button:hover {
+  background-color: var(--background-bubble-end);
+  transform: scale(1.05);
+}
+
+.form button:active {
+  background-color: var(--background-bubble-end);
+}
 
 @media screen and (max-width: 768px) {
   .info_commande {

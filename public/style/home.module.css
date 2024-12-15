@@ -26,7 +26,18 @@
   font-size: 1.5em;
   cursor: pointer;
   margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+.description button:hover {
+  background-color: var(--background-bubble-end);
+  transform: scale(1.05);
+}
+
+.description button:active {
+  background-color: var(--background-bubble-end);
+}
+
 
 .description button:hover {
   background-color: var(--background-bubble-end);
