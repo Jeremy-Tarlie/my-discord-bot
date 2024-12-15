@@ -1,35 +1,133 @@
 .commandes_list {
-  width: 50%;
+  width: 40%;
+  max-width: 600px;
   height: 500px;
-  overflow-y: scroll;
-  background-color: var(--background-bubble-start);
-  margin: 50px 10px;
+  overflow-y: auto; /* Remplacé scroll par auto pour un scroll plus naturel */
+  background: linear-gradient(
+    to bottom,
+    var(--background-bubble-start),
+    var(--background-bubble-end)
+  ); /* Gradient pour un effet visuel agréable */
+  margin: 50px 10px; /* Centrage horizontal */
+  padding: 20px; /* Ajout de padding pour un espacement interne */
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Ombre plus définie */
 }
 
+
 .commandes_list ul {
-  list-style-type: none;
-  margin: 10px;
+  list-style: none; /* Supprime les puces */
+  margin: 0; /* Ajustement pour éviter les marges excessives */
   padding: 0;
 }
 
 .commandes_list li {
-  margin: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* Fond légèrement contrasté */
+  border-radius: 10px; /* Arrondi pour cohérence avec le conteneur */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.commandes_list li input[type="checkbox"] {
+  height: 1.2rem;
+  width: 1.2rem;
+  margin-top: 2px;
+}
+
+.commandes_list li label {
+  margin-left: 10px; /* Plus d'espace pour la lisibilité */
+  font-size: 16px;
+  line-height: 1.5; /* Meilleur espacement des lignes */
+  color: #333;
 }
 
 .other_command {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column; /* Colonne par défaut */
+  align-items: stretch; /* Étire les enfants à la largeur disponible */
+  gap: 20px; /* Espacement plus généreux */
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
+.other_command div {
+  display: flex;
+  flex-direction: row; /* Les inputs sont alignés horizontalement */
+  gap: 10px;
+  width: 100%;
+}
 
+.other_command input[type="text"],
+.other_command textarea {
+  flex: 1; /* Prend une largeur proportionnelle */
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
+.other_command input[type="text"]:focus,
+.other_command textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+.other_command textarea {
+  resize: vertical;
+  min-height: 50px; /* Augmentation de la hauteur minimale */
+}
+
+.other_command strong {
+  font-size: 18px;
+  margin: auto 0; /* Centre verticalement */
+  color: #555;
+}
+
+.other_command button {
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.other_command button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.other_command button:active {
+  background-color: #004085;
+}
 
 @media screen and (max-width: 768px) {
   .commandes_list {
     width: 90%;
-    margin: 0px 10px 50px;
+    margin: 20px auto;
+  }
+
+  .other_command div {
+    flex-direction: column; /* Passe les inputs en colonne */
+    gap: 15px; /* Espacement entre les champs */
+  }
+
+  .other_command strong {
+   display: none; /* Masque le texte */
+  }
+
+  .other_command button {
+    align-self: stretch; /* Bouton prend toute la largeur disponible */
   }
 }
-
-

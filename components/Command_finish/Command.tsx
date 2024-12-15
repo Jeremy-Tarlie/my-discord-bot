@@ -116,27 +116,29 @@ const Command = ({ bot, setBot }: { bot: any; setBot: any }) => {
         {commands.map((command) => (
           <li key={command.name} className={style.commande}>
             <input
-              className={style.command_checkbox}
+              className="checkbox"
               type="checkbox"
               onChange={command_select(command)}
               checked={selectedCommands.some(
                 (selected) => selected.name === command.name
               )}
             />
-            <label >
+            <label>
               <strong>{command.name}</strong>
-              <span>: {command.description}</span>
+              <span>{` : ${command.description}`}</span>
             </label>
           </li>
         ))}
 
         <li className={style.other_command}>
-          <input id="commandName" type="text" placeholder="Command name" />
-          <strong>:</strong>
-          <textarea
-            id="textareaCommand"
-            placeholder="Command description"
-          ></textarea>
+          <div>
+            <input id="commandName" type="text" placeholder="Command name" />
+            <strong>:</strong>
+            <textarea
+              id="textareaCommand"
+              placeholder="Command description"
+            ></textarea>
+          </div>
           <button type="button" onClick={addCommand}>
             {t("add_command")}
           </button>
