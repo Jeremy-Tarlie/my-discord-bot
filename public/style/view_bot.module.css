@@ -42,10 +42,10 @@
 
 .title_bot_role {
   position: absolute;
-  left: 30px;
-  top: 315px;
+  left: 50px;
+  top: 377px;
   font-weight: normal;
-  font-size: medium;
+  font-size: small;
   width: 275px;
   overflow: hidden;
 }
@@ -66,7 +66,6 @@
     position: relative;
     margin-bottom: 100px;
   }
-  
 }
 
 @media screen and (max-width: 425px) {
