@@ -81,6 +81,7 @@ const Form_step_1 = ({ bot, setBot }: { bot: any; setBot: any }) => {
           value={bot.name}
           onChange={handleChange}
           required
+          maxLength={35}
         />
       </div>
       <div className={style.form_group}>

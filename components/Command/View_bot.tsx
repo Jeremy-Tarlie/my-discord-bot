@@ -19,7 +19,9 @@ const View_Bot = ({bot_view}: any) => {
         width={100}
         height={100}
       />
-      <p className={style.title_bot}>{bot_view.name}</p>
+      <p className={style.title_bot}>{bot_view.name.length > 19 ? bot_view.name.substr(0, 19)+"..." : bot_view.name}</p>
+      <p className={style.title_bot_id}>{bot_view.name.length > 19 ? bot_view.name.substr(0, 19)+"..." : bot_view.name}</p>
+      <p className={style.title_bot_role}>{bot_view.name.length > 19 ? bot_view.name.substr(0, 19)+"..." : bot_view.name}</p>
       <p className={style.description_bot}>{bot_view.description}</p>
     </div>
   );

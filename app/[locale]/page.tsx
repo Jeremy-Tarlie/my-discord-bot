@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import style from "@/public/style/home.module.css";
+import Image from "next/image";
 
 export default function LocalePage() {
   const t = useTranslations("home");
@@ -14,14 +15,26 @@ export default function LocalePage() {
       </div>
       <div className={style.container_bubble}>
         <div className={`${style.bubble} ${style.left}`}>
-          <img src="./img/Bot_dream.png" alt="" className="bubble_img" />
+          <Image
+            src="/img/Bot_dream.png"
+            alt=""
+            className="bubble_img"
+            width={500}
+            height={500}
+          />
           <div className={style.bubble_text}>
             <h1>{t("bubble1.title")}</h1>
             <p>{t("bubble1.description")}</p>
           </div>
         </div>
         <div className={`${style.bubble} ${style.right}`}>
-          <img src="./img/Bot_dream.png" alt="" className="bubble_img" />
+          <Image
+            src="/img/Bot_personnality.png"
+            alt=""
+            className="bubble_img"
+            width={500}
+            height={500}
+          />
           <div className={style.bubble_text}>
             <h1>{t("bubble2.title")}</h1>
             <p>{t("bubble2.description")}</p>
@@ -29,7 +42,13 @@ export default function LocalePage() {
         </div>
 
         <div className={`${style.bubble} ${style.left}`}>
-          <img src="./img/Bot_dream.png" alt="" className="bubble_img" />
+          <Image 
+          src="/img/Bot_result.png" 
+          alt="" 
+          className="bubble_img" 
+          width={500}
+          height={500}
+          />
           <div className={style.bubble_text}>
             <h1>{t("bubble3.title")}</h1>
             <p>{t("bubble3.description")}</p>
