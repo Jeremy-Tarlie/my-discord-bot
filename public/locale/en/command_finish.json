@@ -9,6 +9,10 @@
       "partie3": "Payment is made via PayPal. An email containing the payment link will be sent to you."
     },
     "delay": "The delivery time for the bot is estimated at 3 business days.",
-    "finish": "Finish"
+    "finish": "Finish",
+    "error": {
+      "fill_all_fields": "Please fill in all fields.",
+      "command_exist": "This command already exists."
+    }
   }
   

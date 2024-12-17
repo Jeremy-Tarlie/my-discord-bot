@@ -3,7 +3,16 @@ import style from "@/public/style/info_command.module.css";
 import { useTranslations } from "next-intl";
 import { load } from "recaptcha-v3"; // Import reCAPTCHA loader
 
-const Info_command = ({ bot, setBot }: { bot: any; setBot: any }) => {
+interface Bot {
+  price: number;
+  host?: boolean;
+  bot_view: {
+    discord: string;
+    email: string;
+  };
+}
+
+const Info_command = ({ bot, setBot }: { bot: Bot; setBot: React.Dispatch<React.SetStateAction<Bot>> }) => {
   const t = useTranslations("command_finish");
   const prefixe = "/";
 
@@ -66,8 +75,8 @@ const Info_command = ({ bot, setBot }: { bot: any; setBot: any }) => {
               name="discord"
               required
               value={bot.bot_view.discord || ""}
-              onChange={(e: any) => {
-                setBot((prevData: any) => ({
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setBot((prevData: Bot) => ({
                   ...prevData,
                   bot_view: {
                     ...prevData.bot_view,
@@ -87,8 +96,8 @@ const Info_command = ({ bot, setBot }: { bot: any; setBot: any }) => {
               name="email"
               required
               value={bot.bot_view.email || ""}
-              onChange={(e: any) => {
-                setBot((prevData: any) => ({
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setBot((prevData: Bot) => ({
                   ...prevData,
                   bot_view: {
                     ...prevData.bot_view,

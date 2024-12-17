@@ -19,9 +19,9 @@ export default function RootLayout({
   params: { locale },
 }: {
   children?: ReactNode;
-  params: { locale?: string };
+  params: { locale: string | undefined };
 }) {
-  const messages: any = useMessages();
+  const messages = useMessages();
 
   return (
     <html lang={locale || "fr"} className={font.className}>
@@ -36,7 +36,7 @@ export default function RootLayout({
       <NextIntlClientProvider locale={locale || "fr"} messages={messages}>
         <body suppressHydrationWarning>
           <div className="container">
-            <Header locale={locale} />
+            <Header locale={locale || "fr"} />
             {children}
             <Footer />
           </div>

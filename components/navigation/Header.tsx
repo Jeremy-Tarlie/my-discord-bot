@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface HeaderProps {
-  locale: any;
+  locale: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ locale }) => {

@@ -9,5 +9,9 @@
     "partie3": "Le paiement s’effectue via PayPal. Un e-mail contenant le lien de paiement vous sera envoyé."
   },
   "delay": "Délai de la livraison du bot est estimé à 3 jours ouvrables.",
-  "finish": "Terminer"
+  "finish": "Terminer",
+  "error": {
+      "fill_all_fields": "Veuillez remplir tous les champs.",
+      "command_exist": "Cette commande existe déjà."
+    }
 }

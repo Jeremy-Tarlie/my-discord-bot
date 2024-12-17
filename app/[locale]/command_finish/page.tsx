@@ -8,6 +8,7 @@ const Command_finish = () => {
     const [bot, setBot] = useState(() => ({
         bot_view: JSON.parse(localStorage.getItem("botData") || "{}"),
         command: [],
+        price: 0,
     }));
 
     useEffect(() => {

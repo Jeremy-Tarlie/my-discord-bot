@@ -5,8 +5,14 @@ import list_command_en from "@/public/locale/en/list_command.json";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 import { useState, useMemo, useEffect } from "react";
+import toast from "react-hot-toast";
 
-const Command = ({ bot, setBot }: { bot: any; setBot: any }) => {
+interface Bot {
+  command?: { name: string; description: string; custom?: boolean }[];
+  price?: number;
+}
+
+const Command = ({ bot, setBot }: { bot: Bot; setBot: React.Dispatch<React.SetStateAction<Bot>> }) => {
   const locale = useLocale();
   const initialCommands =
     locale === "fr"
@@ -37,7 +43,7 @@ const Command = ({ bot, setBot }: { bot: any; setBot: any }) => {
   }, [selectedCommands]);
 
   useEffect(() => {
-    setBot((prevBot: any) => ({
+    setBot((prevBot: Bot) => ({
       ...prevBot,
       price: additionalCost,
     }));
@@ -74,15 +80,9 @@ const Command = ({ bot, setBot }: { bot: any; setBot: any }) => {
       commandName.value = "";
       textareaCommand.value = "";
     } else if (commandExist) {
-      alert(
-        locale === "fr" ? "La commande existe déjà" : "Command already exist"
-      );
+      toast.error(t("error.command_exist"));
     } else {
-      alert(
-        locale === "fr"
-          ? "Merci de remplir les champs"
-          : "Please fill all fields"
-      );
+      toast.error(t("error.fill_all_fields"));
     }
   };
 
@@ -92,7 +92,7 @@ const Command = ({ bot, setBot }: { bot: any; setBot: any }) => {
       if (event.target.checked) {
         setSelectedCommands((prev) => [...prev, command]);
 
-        setBot((prevBot: any) => ({
+        setBot((prevBot: Bot) => ({
           ...prevBot,
           command: [...(prevBot.command || []), command],
         }));
@@ -101,10 +101,10 @@ const Command = ({ bot, setBot }: { bot: any; setBot: any }) => {
           prev.filter((selected) => selected.name !== command.name)
         );
 
-        setBot((prevBot: any) => ({
+        setBot((prevBot: Bot) => ({
           ...prevBot,
           command: (prevBot.command || []).filter(
-            (selected: any) => selected.name !== command.name
+            (selected: { name: string; description: string; custom?: boolean }) => selected.name !== command.name
           ),
         }));
       }

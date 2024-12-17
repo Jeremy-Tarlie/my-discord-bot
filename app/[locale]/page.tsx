@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import style from "@/public/style/home.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function LocalePage() {
   const t = useTranslations("home");
@@ -10,7 +11,7 @@ export default function LocalePage() {
       <div className={style.description}>
         <p>{t("home_description")}</p>
         <button>
-          <a href="/command">{t("home_description_button")}</a>
+          <Link href="/command">{t("home_description_button")}</Link>
         </button>
       </div>
       <div className={style.container_bubble}>

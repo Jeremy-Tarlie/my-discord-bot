@@ -3,20 +3,29 @@ import style from "@/public/style/form_step_1.module.css";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 
-const Form_step_1 = ({ bot, setBot }: { bot: any; setBot: any }) => {
+interface Bot {
+  name: string;
+  img?: string;
+  img_url?: string;
+  host: string;
+  description: string;
+  comment: string;
+}
+
+const Form_step_1 = ({ bot, setBot }: { bot: Bot; setBot: React.Dispatch<React.SetStateAction<Bot>> }) => {
   const t = useTranslations("command");
   const router = useRouter();
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setBot((prevData: any) => ({
+    setBot((prevData: Bot) => ({
       ...prevData,
       [name]: value,
     }));
     console.log(bot);
   };
 
-  function convertBlobToBase64(blob: any) {
+  function convertBlobToBase64(blob: Blob) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -35,7 +44,7 @@ const Form_step_1 = ({ bot, setBot }: { bot: any; setBot: any }) => {
     });
   }
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
@@ -90,7 +99,7 @@ const Form_step_1 = ({ bot, setBot }: { bot: any; setBot: any }) => {
           type="file"
           name="img"
           id="img"
-          onChange={async (e: any) => {
+          onChange={async (e: React.ChangeEvent<HTMLInputElement>) => {
             const fileInput = document.querySelector('input[type="file"]');
             if (!fileInput) {
               throw new Error("File input not found");
@@ -107,10 +116,10 @@ const Form_step_1 = ({ bot, setBot }: { bot: any; setBot: any }) => {
             // Convertir le fichier Blob en base64
             const base64Image = await convertBlobToBase64(file);
 
-            setBot((prevData: any) => ({
+            setBot((prevData: Bot) => ({
               ...prevData,
-              img: base64Image,
-              img_url: URL.createObjectURL(e.target.files[0]),
+              img: base64Image as string,
+              img_url: e.target.files ? URL.createObjectURL(e.target.files[0]) : "",
             }));
           }}
         />

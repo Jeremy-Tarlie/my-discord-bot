@@ -2,7 +2,13 @@ import React from "react";
 import style from "@/public/style/view_bot.module.css";
 import Image from "next/image";
 
-const View_Bot = ({bot_view}: any) => {
+interface BotView {
+  img_url?: string;
+  name: string;
+  description: string;
+}
+
+const View_Bot = ({bot_view}: { bot_view: BotView }) => {
   return (
     <div className={style.view}>
       <Image
