@@ -1,74 +1,126 @@
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import style from "@/public/style/mention_legal.module.css";
 
 export default function MentionLegalPage() {
-  const t = useTranslations("mention-legal");
+  const t = useTranslations("mention_legal");
 
   return (
     <main className={style.container_mention_legal}>
-        <section>
-            <h2>Éditeur du site</h2>
-            <ul>
-                <li><strong>Nom ou pseudonyme :</strong> khraii</li>
-                {/* <li><strong>Adresse :</strong> [Ton adresse physique ou mention "Adresse sur demande"]</li> */}
-                <li><strong>Email :</strong> <a href="mailto:discord@tarlie.fr">discord@tarlie.fr</a></li>
-                <li><strong>Contact Discord :</strong> khraii</li>
-                <li><strong>Statut :</strong> Auto-entrepreneur</li>
-                {/* <li><strong>SIRET :</strong> [Si applicable]</li> */}
-            </ul>
-        </section>
+      <section>
+        <h2>{t("editor.title")}</h2>
+        <ul>
+          <li>
+            <strong>{t("editor.nameOrPseudonymTitle")}</strong>
+            {t("editor.nameOrPseudonym")}
+          </li>
+          {/* <li><strong>Adresse :</strong> [Ton adresse physique ou mention "Adresse sur demande"]</li> */}
+          <li>
+            <strong>{t("editor.emailTitle")}</strong>{" "}
+            <a href="mailto:contact@tarlie.fr">{t("editor.email")}</a>
+          </li>
+          <li>
+            <strong>{t("editor.contactDiscordTitle")}</strong>{" "}
+            {t("editor.contactDiscord")}
+          </li>
+          <li>
+            <strong>{t("editor.statusTitle")}</strong> {t("editor.status")}
+          </li>
+          {/* <li><strong>SIRET :</strong> [Si applicable]</li> */}
+        </ul>
+      </section>
 
-        <section>
-            <h2>Activité proposée</h2>
-            <p>
-                Ce site propose la <strong>création de bots Discord sur commande</strong> ainsi que leur <strong>hébergement mensuel</strong>. 
-                Les conditions de commande et d'hébergement sont les suivantes :
-            </p>
-            <ul>
-                <li><strong>Commande :</strong> Via email ou Discord.</li>
-                <li><strong>Paiement :</strong> Via PayPal après validation de la commande.</li>
-                <li><strong>Hébergement :</strong> Facturé entre le <strong>1er et le 5</strong> du mois.</li>
-                <li><strong>Suspension :</strong> En cas de non-paiement, l'hébergement sera suspendu jusqu'à régularisation.</li>
-            </ul>
-        </section>
+      <section>
+        <h2>{t("activity.title")}</h2>
+        <p>
+          {t("activity.description.partie1")}{" "}
+          <strong>{t("activity.description.partie2")}</strong>{" "}
+          {t("activity.description.partie3")}{" "}
+          <strong>{t("activity.description.partie4")}</strong>{" "}
+          {t("activity.description.partie5")}
+        </p>
+        <ul>
+          <li>
+            <strong>{t("activity.conditions.commande.condition")}</strong>{" "}
+            {t("activity.conditions.commande.details")}
+          </li>
+          <li>
+            <strong>{t("activity.conditions.paiement.condition")}</strong>{" "}
+            {t("activity.conditions.paiement.details")}
+          </li>
+          <li>
+            <strong>{t("activity.conditions.hebergement.condition")}</strong>{" "}
+            {t("activity.conditions.details")}
+            <strong>{t("activity.conditions.hebergement.between")}</strong>{" "}
+            {t("activity.conditions.hebergement.mounth")}
+          </li>
+          <li>
+            <strong>{t("activity.conditions.suspension.condition")}</strong>
+            {t("activity.conditions.suspension.details")}
+          </li>
+        </ul>
+      </section>
 
-        <section>
-            <h2>Politique de Confidentialité (RGPD)</h2>
-            <p>
-                Conformément au <strong>Règlement Général sur la Protection des Données (RGPD)</strong>, l'éditeur s'engage à protéger vos données personnelles.
-            </p>
-            <h3>Données collectées</h3>
-            <ul>
-                <li>Nom ou pseudonyme</li>
-                <li>Adresse email</li>
-                <li>Contact Discord</li>
-                <li>Identifiant PayPal</li>
-            </ul>
-            <h3>Finalité du traitement</h3>
-            <p>Les données sont utilisées uniquement pour :</p>
-            <ul>
-                <li>La gestion des commandes</li>
-                <li>La facturation</li>
-                <li>La communication avec le client</li>
-            </ul>
-            <h3>Vos droits</h3>
-            <p>Vous disposez des droits suivants concernant vos données personnelles :</p>
-            <ul>
-                <li><strong>Droit d'accès :</strong> Consultez vos données.</li>
-                <li><strong>Droit de rectification :</strong> Modifiez des informations inexactes.</li>
-                <li><strong>Droit d'effacement :</strong> Demandez la suppression de vos données.</li>
-                <li><strong>Droit d'opposition :</strong> Refusez le traitement de vos données dans certains cas.</li>
-            </ul>
-            <p>Pour exercer vos droits, contactez-nous à :  
-                <a href="mailto:discord@tarlie.fr">discord@tarlie.fr</a> ou via Discord : khraii.
-            </p>
-        </section>
+      <section>
+        <h2>{t("privacyPolicy.title")}</h2>
+        <p>
+          {t("privacyPolicy.description.partie1")}{" "}
+          <strong>{t("privacyPolicy.description.partie2")} </strong>
+          {t("privacyPolicy.description.partie3")}
+        </p>
+        <h3>{t("privacyPolicy.dataCollected.title")}</h3>
+        <ul>
+          <li>{t("privacyPolicy.dataCollected.items.name")}</li>
+          <li>{t("privacyPolicy.dataCollected.items.email")}</li>
+          <li>{t("privacyPolicy.dataCollected.items.discord")}</li>
+          <li>{t("privacyPolicy.dataCollected.items.paypal")}</li>
+        </ul>
+        <h3>{t("privacyPolicy.purpose.title")}</h3>
+        <p>{t("privacyPolicy.purpose.description")}</p>
+        <ul>
+          <li>{t("privacyPolicy.purpose.items.commandes")}</li>
+          <li>{t("privacyPolicy.purpose.items.facturation")}</li>
+          <li>{t("privacyPolicy.purpose.items.communication")}</li>
+        </ul>
+        <h3>{t("privacyPolicy.yourRights.title")}</h3>
+        <p>{t("privacyPolicy.yourRights.description")}</p>
+        <ul>
+          <li>
+            <strong>{t("privacyPolicy.yourRights.rights.acces.name")}</strong>{" "}
+            {t("privacyPolicy.yourRights.rights.acces.details")}
+          </li>
+          <li>
+            <strong>
+              {t("privacyPolicy.yourRights.rights.rectification.name")}
+            </strong>{" "}
+            {t("privacyPolicy.yourRights.rights.rectification.details")}
+          </li>
+          <li>
+            <strong>
+              {t("privacyPolicy.yourRights.rights.effacement.name")}
+            </strong>{" "}
+            {t("privacyPolicy.yourRights.rights.effacement.details")}
+          </li>
+          <li>
+            <strong>
+              {t("privacyPolicy.yourRights.rights.opposition.name")}
+            </strong>{" "}
+            {t("privacyPolicy.yourRights.rights.opposition.details")}
+          </li>
+        </ul>
+        <p>
+          {t("privacyPolicy.contact.title")}
+          <a href="mailto:discord@tarlie.fr">
+            {t("privacyPolicy.contact.email")}
+          </a>{" "}
+          {t("privacyPolicy.contact.or")}
+          {t("privacyPolicy.contact.discord")}
+        </p>
+      </section>
 
-        <section>
-            <h2>Litiges</h2>
-            <p>En cas de litige, une solution amiable sera recherchée. À défaut, les tribunaux compétents seront ceux du lieu de résidence de l'éditeur.</p>
-        </section>
+      <section>
+        <h2>{t("disputes.title")}</h2>
+        <p>{t("disputes.description")}</p>
+      </section>
     </main>
   );
 }

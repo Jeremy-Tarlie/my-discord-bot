@@ -1,6 +1,48 @@
 .container_error {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
 }
+
+.img_404 {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  max-width: 500px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.description {
+  font-size: 1rem;
+  text-align: center;
+}
+
+
+.link {
+    background-color: var(--background-bubble-start);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-bottom: 20px;
+    color: var(--color-text);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .link:hover {
+    background-color: var(--background-bubble-end);
+    transform: scale(1.05);
+  }
+  
+  .link:active {
+    background-color: var(--background-bubble-end);
+  }
