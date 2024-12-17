@@ -10,6 +10,7 @@ export const pathnames = {
   "/": "/",
   "/command": "/command",
   "/command_finish": "/command_finish",
+  "/mention-legal": "/mention-legal",
  
 } satisfies Pathnames<typeof locales>;
 

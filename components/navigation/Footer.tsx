@@ -1,4 +1,5 @@
 import style from "@/public/style/footer.module.css";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -8,9 +9,12 @@ const Footer = () => {
         <p>© 2024 MyDiscordBot. Tous droits réservés.</p>
       </div>
       <div>
-        <p>Conditions d'utilisation</p>
-        <p>Politique de confidentialité</p>
-        <p>Plan du site</p>
+        <Link href="/mention-legal">
+          <p>Politique de confidentialité</p>
+        </Link>
+        <Link href="/mention-legal">
+          <p>Mentions légales</p>
+        </Link>
       </div>
     </footer>
   );

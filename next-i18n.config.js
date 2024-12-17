@@ -6,7 +6,8 @@ const i18nextConfig = {
     "home",
     "command",
     "command_finish",
-    "404"
+    "404",
+    "mention_legal",
   ]
 };
 

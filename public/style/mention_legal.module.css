@@ -1,0 +1,24 @@
+.container_mention_legal{
+    margin: 50px auto;
+    width: 80%;
+}
+
+.container_mention_legal h2{
+    font-size: 2rem;
+    margin: 20px auto 5px;
+    font-weight: 900;
+}
+
+.container_mention_legal ul{
+    margin: auto 20px;
+}
+
+.container_mention_legal ul li{
+    list-style-type: none;
+}
+
+.container_mention_legal h3{
+    font-size: 1.5rem;
+    margin: 20px auto 0;
+    font-weight: 700;
+}
