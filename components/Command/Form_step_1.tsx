@@ -59,16 +59,13 @@ const Form_step_1 = ({ bot, setBot }: { bot: Bot; setBot: React.Dispatch<React.S
 
       if (response.ok) {
         localStorage.setItem("botData", JSON.stringify(bot));
-
         router.push("/command_finish");
       } else {
-        console.error(
-          "Erreur lors de l'envoi des données :",
-          await response.json()
-        );
+        toast.error(t("error.error_submit"));
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
     } catch (error) {
-      console.error("Erreur réseau :", error);
+      toast.error(t("error.error_submit"));
     }
   };
 

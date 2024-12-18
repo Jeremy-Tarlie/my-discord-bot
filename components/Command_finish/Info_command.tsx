@@ -2,6 +2,7 @@ import React from "react";
 import style from "@/public/style/info_command.module.css";
 import { useTranslations } from "next-intl";
 import { load } from "recaptcha-v3"; // Import reCAPTCHA loader
+import toast from "react-hot-toast";
 
 interface Bot {
   price: number;
@@ -12,7 +13,13 @@ interface Bot {
   };
 }
 
-const Info_command = ({ bot, setBot }: { bot: Bot; setBot: React.Dispatch<React.SetStateAction<Bot>> }) => {
+const Info_command = ({
+  bot,
+  setBot,
+}: {
+  bot: Bot;
+  setBot: React.Dispatch<React.SetStateAction<Bot>>;
+}) => {
   const t = useTranslations("command_finish");
   const prefixe = "/";
 
@@ -20,13 +27,12 @@ const Info_command = ({ bot, setBot }: { bot: Bot; setBot: React.Dispatch<React.
     e.preventDefault();
 
     try {
-      console.log(bot);
       const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
       if (!siteKey) {
         throw new Error("reCAPTCHA site key is not defined");
       }
       const recaptcha = await load(siteKey); // Replace with your site key
-      const token = await recaptcha.execute("submit_form"); 
+      const token = await recaptcha.execute("submit_form");
       const response = await fetch("/api/email", {
         method: "POST",
         headers: {
@@ -36,14 +42,13 @@ const Info_command = ({ bot, setBot }: { bot: Bot; setBot: React.Dispatch<React.
       });
 
       if (!response.ok) {
+        toast.error(t("error.error_submit"));
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      const data = await response.json();
-      console.log("Form submitted successfully:", data);
+      toast.success(t("success.success_submit"));
     } catch (error) {
-      console.error("Form submission failed:", error);
-      alert("Failed to submit the form. Please try again.");
+      toast.error(t("error.error_submit"));
     }
   };
 
@@ -63,7 +68,12 @@ const Info_command = ({ bot, setBot }: { bot: Bot; setBot: React.Dispatch<React.
       </div>
       {/* <p>{t("delay")}</p> */}
 
-      <form onSubmit={handleSubmit} action="" method="post" className={style.form}>
+      <form
+        onSubmit={handleSubmit}
+        action=""
+        method="post"
+        className={style.form}
+      >
         <div className={style.contact}>
           <div className={style.form_group}>
             <label htmlFor="discord">

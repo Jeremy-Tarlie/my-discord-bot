@@ -12,7 +12,11 @@
     "finish": "Finish",
     "error": {
       "fill_all_fields": "Please fill in all fields.",
-      "command_exist": "This command already exists."
+      "command_exist": "This command already exists.",
+      "error_submit": "An error occurred while submitting the command. Please try again later."
+    },
+    "success": {
+      "success_submit": "Your command has been successfully submitted. An email containing the payment link will be sent to you shortly."
     }
   }
   

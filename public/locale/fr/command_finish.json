@@ -11,7 +11,11 @@
   "delay": "Délai de la livraison du bot est estimé à 3 jours ouvrables.",
   "finish": "Terminer",
   "error": {
-      "fill_all_fields": "Veuillez remplir tous les champs.",
-      "command_exist": "Cette commande existe déjà."
-    }
+    "fill_all_fields": "Veuillez remplir tous les champs.",
+    "command_exist": "Cette commande existe déjà.",
+    "error_submit": "Une erreur s'est produite lors de la soumission de la commande. Veuillez réessayer plus tard."
+  },
+  "success": {
+    "success_submit": "Votre commande a été soumise avec succès. Un e-mail contenant le lien de paiement vous sera envoyé sous peu."
+  }
 }
