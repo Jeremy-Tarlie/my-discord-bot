@@ -13,6 +13,7 @@ export async function getNSMessages({
   try {
     return (await import(`./public/locale/${locale}/${ns}.json`)).default;
   } catch (e) {
+    console.error(e);
     return (await import(`./public/locale/${defaultLocale}/${ns}.json`))
       .default;
   }
@@ -21,10 +22,10 @@ export async function getNSMessages({
 export default getRequestConfig(async ({ locale }) => {
   const allMessages = await Promise.all(
     namespaces.map((ns) => {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         getNSMessages({ locale, ns })
           .then((messages) => resolve({ ns, messages }))
-          .catch((e) => {
+          .catch(() => {
             console.warn(`Messages not found for : ${ns} in locale: ${locale}`);
             resolve({ ns, messages: {} });
           });

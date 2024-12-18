@@ -3,6 +3,7 @@ import Command from "@/components/Command_finish/Command";
 import Info_command from "@/components/Command_finish/Info_command";
 import style from "@/public/style/command.module.css";
 import { useState, useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 
 type Bot = {
   bot_view: {
@@ -53,6 +54,7 @@ const Command_finish = () => {
   return (
     <main>
       <div className={style.container_commande}>
+        <Toaster position="top-center" reverseOrder={false} />
         <Command bot={bot} setBot={setBot} />
         <Info_command bot={bot} setBot={setBot} />
       </div>

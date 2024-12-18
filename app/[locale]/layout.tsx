@@ -7,6 +7,7 @@ import "./global.css";
 import Header from "@/components/navigation/Header";
 import Footer from "@/components/navigation/Footer";
 
+
 const font = Inter({ subsets: ["latin"] });
 
 export const viewport: Viewport = {
@@ -40,6 +41,7 @@ export default function RootLayout({
             {children}
             <Footer />
           </div>
+          
         </body>
       </NextIntlClientProvider>
     </html>

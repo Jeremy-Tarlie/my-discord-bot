@@ -2,7 +2,7 @@
 import style from "@/public/style/form_step_1.module.css";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import {toast} from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 interface Bot {
   name: string;
@@ -13,11 +13,21 @@ interface Bot {
   comment: string;
 }
 
-const Form_step_1 = ({ bot, setBot }: { bot: Bot; setBot: React.Dispatch<React.SetStateAction<Bot>> }) => {
+const Form_step_1 = ({
+  bot,
+  setBot,
+}: {
+  bot: Bot;
+  setBot: React.Dispatch<React.SetStateAction<Bot>>;
+}) => {
   const t = useTranslations("command");
   const router = useRouter();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
     setBot((prevData: Bot) => ({
       ...prevData,
@@ -138,7 +148,9 @@ const Form_step_1 = ({ bot, setBot }: { bot: Bot; setBot: React.Dispatch<React.S
             setBot((prevData: Bot) => ({
               ...prevData,
               img: base64Image as string,
-              img_url: e.target.files ? URL.createObjectURL(e.target.files[0]) : "",
+              img_url: e.target.files
+                ? URL.createObjectURL(e.target.files[0])
+                : "",
             }));
           }}
         />

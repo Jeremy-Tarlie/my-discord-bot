@@ -94,6 +94,7 @@ const Command: React.FC<CommandProps> = ({ bot, setBot }) => {
 
       commandName.value = "";
       textareaCommand.value = "";
+      toast.success(t("success.success_command"));
     } else if (commandExist) {
       toast.error(t("error.command_exist"));
     } else {

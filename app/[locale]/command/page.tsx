@@ -1,8 +1,9 @@
-"use client"
-import { useState } from 'react'
-import Form_step_1 from '@/components/Command/Form_step_1'
-import View_Bot from '@/components/Command/View_bot'
-import style from '@/public/style/command.module.css'
+"use client";
+import { useState } from "react";
+import Form_step_1 from "@/components/Command/Form_step_1";
+import View_Bot from "@/components/Command/View_bot";
+import style from "@/public/style/command.module.css";
+import { Toaster } from "react-hot-toast";
 
 type Bot = {
   name: string;
@@ -22,16 +23,17 @@ const Command = () => {
     description: "",
     comment: "",
   });
-  
+
   return (
     <main>
-        <div className={style.container_commande}>
-          <View_Bot bot_view={bot}/>
+      <div className={style.container_commande}>
+        <Toaster position="top-center" reverseOrder={false} />
+        <View_Bot bot_view={bot} />
 
-          <Form_step_1 bot={bot} setBot={setBot}/>
-        </div>
-      </main>
-  )
-}
+        <Form_step_1 bot={bot} setBot={setBot} />
+      </div>
+    </main>
+  );
+};
 
-export default Command
+export default Command;

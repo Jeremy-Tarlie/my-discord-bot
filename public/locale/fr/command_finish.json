@@ -16,6 +16,7 @@
     "error_submit": "Une erreur s'est produite lors de la soumission de la commande. Veuillez réessayer plus tard."
   },
   "success": {
-    "success_submit": "Votre commande a été soumise avec succès. Un e-mail contenant le lien de paiement vous sera envoyé sous peu."
+    "success_submit": "Votre commande a été soumise avec succès. Un e-mail contenant le lien de paiement vous sera envoyé sous peu.",
+    "success_command": "Votre commande a été soumise avec succès."
   }
 }

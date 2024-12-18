@@ -16,7 +16,8 @@
       "error_submit": "An error occurred while submitting the command. Please try again later."
     },
     "success": {
-      "success_submit": "Your command has been successfully submitted. An email containing the payment link will be sent to you shortly."
+      "success_submit": "Your command has been successfully submitted. An email containing the payment link will be sent to you shortly.",
+      "success_command": "Your command has been successfully submitted."
     }
   }
   
