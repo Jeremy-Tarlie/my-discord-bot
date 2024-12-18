@@ -33,6 +33,7 @@ const Info_command = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    console.log(bot)
     try {
       const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
       if (!siteKey) {
@@ -49,7 +50,6 @@ const Info_command = ({
       });
 
       if (!response.ok) {
-        toast.error(t("error.error_submit"));
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 

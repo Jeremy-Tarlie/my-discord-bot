@@ -93,12 +93,12 @@
 }
 
 .form button:hover {
-  background-color: var(--background-bubble-end);
+  background-color: var(--background);
   transform: scale(1.05);
 }
 
 .form button:active {
-  background-color: var(--background-bubble-end);
+  background-color: var(--background);
 }
 
 @media screen and (max-width: 768px) {

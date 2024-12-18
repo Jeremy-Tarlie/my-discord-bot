@@ -7,13 +7,46 @@ import "./global.css";
 import Header from "@/components/navigation/Header";
 import Footer from "@/components/navigation/Footer";
 
-
 const font = Inter({ subsets: ["latin"] });
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
 };
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string | undefined };
+}) {
+  return {
+    title: locale === "fr" ? "Mon Bot Discord" : "My Discord Bot",
+    description:
+      locale === "fr"
+        ? "Bienvenue sur mon bot Discord"
+        : "Welcome to my Discord bot",
+    applicationName: "My Discord Bot",
+    keywords:
+      locale === "fr"
+        ? ["discord", "bot", "français"]
+        : ["discord", "bot", "english"],
+    viewport: "width=device-width, initial-scale=1",
+    ogType: "website",
+    cardType: "summary_large_image",
+    defaultImage: "/public/img/logo.png",
+    creator: "@khraii",
+    metaRobots: "index, follow",
+   
+    twitter: {
+      title: locale === "fr" ? "Mon Bot Discord" : "My Discord Bot",
+      description: locale === "fr" ? "Bienvenue sur mon bot Discord" : "Welcome to my Discord bot",
+      // If you add an twitter-image.(jpg|jpeg|png|gif) image to the /app folder, you don't need the code below
+      images: "/public/img/logo.png",
+      card: "summary_large_image",
+      creator: "@marc_louvion",
+    },
+  };
+}
 
 export default function RootLayout({
   children,
@@ -41,7 +74,6 @@ export default function RootLayout({
             {children}
             <Footer />
           </div>
-          
         </body>
       </NextIntlClientProvider>
     </html>

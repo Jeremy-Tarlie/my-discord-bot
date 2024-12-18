@@ -2,6 +2,7 @@
   "add_command": "Ajouter une commande",
   "prefixe": "Prefixe : ",
   "price": "Prix : ",
+  "price_mounth": "+ 10€/mois",
   "techno": "Technologie utilisée : JavaScript",
   "info": {
     "partie1": " Vous pouvez sélectionner jusqu'à 20 commandes sans frais supplémentaires. Au-delà de 20, un supplément de 1 € sera appliqué pour chaque tranche de 3 commandes supplémentaires.",

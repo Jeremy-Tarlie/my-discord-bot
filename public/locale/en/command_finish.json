@@ -2,6 +2,7 @@
     "add_command": "Add a command",
     "prefixe": "Prefix: ",
     "price": "Price: ",
+    "price_mounth": "+ €10/month",
     "techno": "Technology used: JavaScript",
     "info": {
       "partie1": "You can select up to 20 commands without additional fees. Beyond 20, an extra charge of €1 will be applied for every 3 additional commands.",

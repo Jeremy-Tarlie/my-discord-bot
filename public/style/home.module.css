@@ -30,17 +30,17 @@
 }
 
 .description button:hover {
-  background-color: var(--background-bubble-end);
+  background-color: var(--background);
   transform: scale(1.05);
 }
 
 .description button:active {
-  background-color: var(--background-bubble-end);
+  background-color: var(--background);
 }
 
 
 .description button:hover {
-  background-color: var(--background-bubble-end);
+  background-color: var(--background);
 }
 
 .description button a {
@@ -69,8 +69,7 @@
   /* mask: radial-gradient(100% 100% at var(--_p) 0, #0000 99%, #000 102%)
       var(--_p) 100% / var(--t) var(--t) no-repeat,
     linear-gradient(#000 0 0) padding-box; */
-  background: linear-gradient(135deg, var(--bubble), var(--bubble-end))
-    border-box;
+  
 
 }
 
@@ -80,6 +79,8 @@
   place-self: start;
   margin-right: auto; */
   flex-direction: row-reverse;
+  background: linear-gradient(45deg, var(--background-bubble-end), var(--bubble) 45%)
+    border-box;
 }
 
 .right {
@@ -87,6 +88,7 @@
   border-bottom-right-radius: 0 0;
   place-self: end;
   margin-left: auto; */
+  background: linear-gradient(135deg, var(--bubble) 45%, var(--background-bubble-end)) border-box;
 }
 
 .bubble img {

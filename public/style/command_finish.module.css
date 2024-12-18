@@ -105,12 +105,12 @@
 }
 
 .other_command button:hover {
-  background-color: var(--background-bubble-end);
+  background-color: var(--background);
   transform: scale(1.05);
 }
 
 .other_command button:active {
-  background-color: var(--background-bubble-end);
+  background-color: var(--background);
 }
 
 @media screen and (max-width: 768px) {
