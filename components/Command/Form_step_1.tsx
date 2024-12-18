@@ -2,6 +2,7 @@
 import style from "@/public/style/form_step_1.module.css";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
+import {toast} from "react-hot-toast";
 
 interface Bot {
   name: string;
@@ -112,6 +113,27 @@ const Form_step_1 = ({ bot, setBot }: { bot: Bot; setBot: React.Dispatch<React.S
               throw new Error("No file selected");
             }
             const file = fileInputElement.files[0]; // Exemple de récupération du fichier
+
+            if (!file.type.startsWith("image/")) {
+              toast.error("Le fichier sélectionné n'est pas une image");
+              return;
+            }
+
+            if (!["image/png", "image/jpeg"].includes(file.type)) {
+              toast.error("Seuls les fichiers PNG et JPEG sont autorisés");
+              fileInputElement.value = "";
+              setBot((prevData: Bot) => ({
+                ...prevData,
+                img: "",
+                img_url: "",
+              }));
+              return;
+            }
+
+            if (file.size > 1024 * 1024) {
+              toast.error("L'image est trop lourde");
+              return;
+            }
 
             // Convertir le fichier Blob en base64
             const base64Image = await convertBlobToBase64(file);

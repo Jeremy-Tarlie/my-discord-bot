@@ -5,7 +5,7 @@ import list_command_en from "@/public/locale/en/list_command.json";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 import { useState, useMemo, useEffect } from "react";
-import toast from "react-hot-toast";
+import {toast} from "react-hot-toast";
 
 interface Bot {
   command?: { name: string; description: string; custom?: boolean }[];
