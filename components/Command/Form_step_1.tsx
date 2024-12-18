@@ -23,7 +23,6 @@ const Form_step_1 = ({ bot, setBot }: { bot: Bot; setBot: React.Dispatch<React.S
       ...prevData,
       [name]: value,
     }));
-    console.log(bot);
   };
 
   function convertBlobToBase64(blob: Blob) {
@@ -66,6 +65,7 @@ const Form_step_1 = ({ bot, setBot }: { bot: Bot; setBot: React.Dispatch<React.S
       }
     } catch (error) {
       toast.error(t("error.error_submit"));
+      console.error("Error:", error);
     }
   };
 

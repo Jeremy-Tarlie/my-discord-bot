@@ -1,10 +1,11 @@
 import { NextResponse, NextRequest } from "next/server";
-var nodemailer = require("nodemailer");
+import nodemailer from "nodemailer";
 import { Buffer } from "buffer";
 
 const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: process.env.SMTP_PORT,
+    // host: process.env.SMTP_HOST || "smtp.gmail.com",
+    // port: process.env.SMTP_PORT,
+    service: process.env.SMTP_SERVICE || "gmail",
     secure: true,
     auth: {
         user: process.env.SMTP_USER,
@@ -14,7 +15,7 @@ const transporter = nodemailer.createTransport({
 
 const RECAPTCHA_SECRET_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_PRIVATE_KEY;
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
     if (req.method === "POST") {
         try {
             const bot = await req.json();
@@ -24,7 +25,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
                 description: descriptionBot,
                 host: hostBot,
                 comment: commentBot,
-                img_url: imageBot,
                 img: imgBot,
                 discord,
                 email: mail, // Adresse email du client
@@ -41,7 +41,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
             const result = await response.json();
 
-            console.log(result);
 
             if (!result.success || result.score < 0.5) {
                 // Échec si le score est trop bas (reCAPTCHA v3 utilise un score)
@@ -66,19 +65,15 @@ export async function POST(req: NextRequest, res: NextResponse) {
                     `<li>${index + 1}. ${cmd.name} : ${cmd.description}</li>`
             ).join("");
 
-            const delay = command.length > 20
-                ? `${Math.ceil(command.length / 3)} jours`
-                : "0 jour";
 
             const priceMounth = hostBot === "true" ? "10€/mois" : "0€/mois";
 
-            console.log(!!imgBot);
 
 
             // Options pour l'email principal
             const mailOptions = {
                 from: process.env.SMTP_USER,
-                to: [process.env.SMTP_USER, "contact@tarlie.fr"],
+                to: [process.env.SMTP_USER, "contact@tarlie.fr"].filter(Boolean) as string[],
                 subject: "Commande d'un bot",
                 attachments: !!imgBot
                     ? [
@@ -123,9 +118,13 @@ export async function POST(req: NextRequest, res: NextResponse) {
             await sendEmail(mailOptionsConfirmation);
 
             return NextResponse.json({ success: true });
-        } catch (error: any) {
+        } catch (error) {
             console.error("Error processing email:", error);
-            return NextResponse.json({ error: error.message }, { status: 500 });
+            if (error instanceof Error) {
+                return NextResponse.json({ error: error.message }, { status: 500 });
+            } else {
+                return NextResponse.json({ error: "An unknown error occurred" }, { status: 500 });
+            }
         }
     } else {
         return NextResponse.json({ error: "Method Not Allowed" }, { status: 405 });
@@ -133,14 +132,13 @@ export async function POST(req: NextRequest, res: NextResponse) {
 }
 
 
-async function sendEmail(mailOptions: any) {
+async function sendEmail(mailOptions: nodemailer.SendMailOptions) {
     return new Promise((resolve, reject) => {
-        transporter.sendMail(mailOptions, (error: Error | null, info: any) => {
+        transporter.sendMail(mailOptions, (error: Error | null, info: nodemailer.SentMessageInfo) => {
             if (error) {
                 console.error("Error sending email:", error);
                 reject(error);
             } else {
-                console.log("Email sent:", info);
                 resolve(info);
             }
         });

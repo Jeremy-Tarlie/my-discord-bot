@@ -7,12 +7,27 @@ import { useLocale } from "next-intl";
 import { useState, useMemo, useEffect } from "react";
 import {toast} from "react-hot-toast";
 
-interface Bot {
-  command?: { name: string; description: string; custom?: boolean }[];
-  price?: number;
+type Bot = {
+  bot_view: {
+    name: string;
+    img?: string;
+    img_url?: string;
+    host: string;
+    description: string;
+    comment: string;
+    discord: string;
+    email: string;
+  };
+  command?: Array<{ name: string; description: string; custom?: boolean }>;
+  price: number;
+};
+
+interface CommandProps {
+  bot: Bot;
+  setBot: React.Dispatch<React.SetStateAction<Bot>>;
 }
 
-const Command = ({ bot, setBot }: { bot: Bot; setBot: React.Dispatch<React.SetStateAction<Bot>> }) => {
+const Command: React.FC<CommandProps> = ({ bot, setBot }) => {
   const locale = useLocale();
   const initialCommands =
     locale === "fr"

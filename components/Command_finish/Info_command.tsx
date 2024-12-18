@@ -4,14 +4,21 @@ import { useTranslations } from "next-intl";
 import { load } from "recaptcha-v3"; // Import reCAPTCHA loader
 import toast from "react-hot-toast";
 
-interface Bot {
-  price: number;
-  host?: boolean;
+type Bot = {
   bot_view: {
+    name: string;
+    img?: string;
+    img_url?: string;
+    host: string;
+    description: string;
+    comment: string;
     discord: string;
     email: string;
   };
-}
+  command?: Array<{ name: string; description: string; custom?: boolean }>;
+  price: number;
+};
+
 
 const Info_command = ({
   bot,
@@ -49,6 +56,7 @@ const Info_command = ({
       toast.success(t("success.success_submit"));
     } catch (error) {
       toast.error(t("error.error_submit"));
+      console.error(error);
     }
   };
 
@@ -57,7 +65,7 @@ const Info_command = ({
       <div className={style.price_prefixe}>
         <p>{`${t("prefixe")} ${prefixe}`}</p>
         <p>{`${t("price")} ${bot.price} € ${
-          bot.host ? `${t("price_mounth")}` : ""
+          bot.bot_view.host === "true" ? `${t("price_mounth")}` : ""
         }`}</p>
       </div>
       <p>{t("techno")}</p>
