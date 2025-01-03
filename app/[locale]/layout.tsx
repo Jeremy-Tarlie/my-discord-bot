@@ -1,42 +1,64 @@
 import { ReactNode } from "react";
 import { Inter } from "next/font/google";
-import { Viewport } from "next";
-import { NextIntlClientProvider, useLocale } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { useMessages } from "next-intl";
 import "./global.css";
 import Header from "@/components/navigation/Header";
 import Footer from "@/components/navigation/Footer";
-import { generateMeta } from "@/utils/generateMeta";
-import Head from "next/head";
 
 const font = Inter({ subsets: ["latin"] });
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string | undefined };
+}) {
+  const { locale } = params;
+  const title = "My Discord Bot";
+  const description =
+    locale === "fr"
+      ? "Bienvenue sur mon bot Discord"
+      : "Welcome to my Discord bot";
+  const imageUrl = "https://example.com/og-image.jpg";
+  const url = "https://example.com";
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [{ url: imageUrl }],
+      url,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [imageUrl],
+    },
+  };
+}
 
 interface LayoutProps {
   children?: ReactNode;
+  params: { locale: string | undefined };
 }
 
-export default function RootLayout({ children }: LayoutProps) {
+export default function RootLayout({ children, params }: LayoutProps) {
+  const { locale } = params;
   const messages = useMessages();
-  const locale = useLocale();
-
-  const meta = {
-    title: locale === "fr" ? "Mon Bot Discord" : "My Discord Bot",
-    description:
-      locale === "fr"
-        ? "Bienvenue sur mon bot Discord"
-        : "Welcome to my Discord bot",
-    imageUrl: "https://example.com/og-image.jpg",
-    url: "https://example.com",
-  };
 
   return (
     <html lang={locale || "fr"} className={font.className}>
-      <Head>{generateMeta(meta)}</Head>
+      <head>
+        <link rel="icon" href="/img/bot-discord-logo.png" />
+        <script
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+          async
+          defer
+        ></script>
+      </head>
 
       <NextIntlClientProvider locale={locale || "fr"} messages={messages}>
         <body suppressHydrationWarning>

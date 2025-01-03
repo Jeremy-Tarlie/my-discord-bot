@@ -23,7 +23,7 @@
 .title_bot {
   position: absolute;
   top: 175px;
-  left: 30px;
+  left: 20px;
   font-size: larger;
   font-weight: bold;
   width: 275px;
@@ -32,7 +32,7 @@
 
 .title_bot_id {
   position: absolute;
-  left: 30px;
+  left: 20px;
   top: 215px;
   font-weight: normal;
   font-size: medium;
@@ -53,7 +53,7 @@
 .description_bot {
   position: absolute;
   top: 251px;
-  left: 30px;
+  left: 20px;
   width: 275px;
   height: 90px;
   overflow-wrap: break-word;
@@ -65,44 +65,61 @@
   .view {
     position: relative;
     margin-bottom: 100px;
+    top: 0px;
   }
 }
 
 @media screen and (max-width: 425px) {
   .view {
     margin: auto;
+    margin-bottom: 100px;
   }
 }
 
 @media screen and (max-width: 375px) {
   .view {
     margin: auto;
+    margin-bottom: 100px;
   }
 
-  .profile {
+  /* .profile {
     width: 50px;
     height: 50px;
     top: 8px;
     left: 12px;
-  }
+  } */
 
   .title_bot {
-    top: 65px;
-    left: 15px;
-    width: 165px;
+    /* top: 65px; */
+    left: 20px;
+    /* width: 165px; */
+    font-size: small;
+  }
+
+  .title_bot_id {
+    /* top: 115px; */
+    left: 20px;
+    /* width: 165px; */
     font-size: small;
   }
 
   .description_bot {
-    top: 115px;
-    left: 15px;
-    width: 165px;
+    /* top: 115px; */
+    left: 20px; 
+    /* width: 165px; */
     font-size: small;
-    height: 120px;
+    /* height: 120px; */
   }
 
   .bot_background {
     border-radius: 5px;
-    width: 200px;
+    /* width: 200px; */
+  }
+}
+
+
+@media screen and (max-width: 350px) {
+  .view {
+    width: 350px;
   }
 }
