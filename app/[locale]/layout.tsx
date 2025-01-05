@@ -21,14 +21,18 @@ interface LayoutProps {
   children?: ReactNode;
 }
 
-export const metadata :Metadata = {
-  title : {
-    absolute:"",
-    default:"My Discord Bot",
-    template: ""
+export const metadata: Metadata = {
+  title: {
+    absolute: "",
+    default: "My Discord Bot",
+    template: "",
   },
-  description : "Bienvenue sur My Discord Bot ! Un site pour vous aider à trouver le bot Discord de vos rêves.",
-}
+  description:
+    "Bienvenue sur My Discord Bot ! Un site pour vous aider à trouver le bot Discord de vos rêves.",
+    icons: {
+      icon: '/logo.ico', // Path to your icon file
+    },
+};
 
 export default function RootLayout({ children }: LayoutProps) {
   const messages = useMessages();
@@ -36,9 +40,17 @@ export default function RootLayout({ children }: LayoutProps) {
 
   return (
     <html lang={locale || "fr"} className={font.className}>
+      <head>
+        <script
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+          async
+          defer
+        ></script>
+      </head>
 
       <NextIntlClientProvider locale={locale || "fr"} messages={messages}>
         <body suppressHydrationWarning>
+          <link rel="icon" href="/favicon.ico" sizes="any" />
           <div className="container">
             <Header locale={locale || "fr"} />
             {children}
