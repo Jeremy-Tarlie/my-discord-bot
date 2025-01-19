@@ -1,11 +1,10 @@
-# Utiliser une image de base Node.js
-FROM node:18-alpine
+# Etape de build
+FROM node:18-alpine AS builder
 
-# Créer et définir le répertoire de travail
 WORKDIR /app
 
-# Copier le fichier package.json et package-lock.json
-COPY package*.json ./
+# Copier uniquement les fichiers nécessaires pour l'installation des dépendances
+COPY package.json package-lock.json ./
 
 # Installer les dépendances
 RUN npm install --legacy-peer-deps
@@ -15,6 +14,14 @@ COPY . .
 
 # Générer la version de production de l'application Next.js
 RUN npm run build
+
+# Etape de production
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copier le fichier .env depuis l'étape builder
+COPY --from=builder /app ./
 
 # Exposer le port sur lequel Next.js écoute
 EXPOSE 3000
